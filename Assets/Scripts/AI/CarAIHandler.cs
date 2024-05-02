@@ -229,7 +229,7 @@ public class CarAIHandler : MonoBehaviour
         
         var first = currentWaypoint;
         var second = first.nextWaypointNode.First();
-
+        
         var firstPos = first.transform.position;
         var secondPos = second.transform.position;
         
@@ -239,14 +239,19 @@ public class CarAIHandler : MonoBehaviour
 
         var distanceToTurn = (firstPos - carPos).magnitude;
 
-        if (distanceToTurn > 50)
-        {
-            return 0f;
-        }
-
         _rigidbody2D ??= this.GetComponent<Rigidbody2D>();
-        
-        return (angle / 180) * _rigidbody2D.velocity.magnitude/maxSpeed * 10;
+        if (distanceToTurn < 200)
+        {
+            if (_rigidbody2D.velocity.magnitude > 10 && Mathf.Abs(Mathf.Abs(carTransform.eulerAngles.z/1) - Mathf.Abs(angle / 180)) > 0.3f)
+            {
+                return _rigidbody2D.velocity.magnitude/maxSpeed;
+            }
+        }
+        /*if (distanceToTurn < _rigidbody2D.velocity.magnitude/maxSpeed*10)
+        {
+            return  * _rigidbody2D.velocity.magnitude/maxSpeed;
+        }*/
+        return 0f;
     }
     
     float ApplyThrottleOrBrake(float inputX)
