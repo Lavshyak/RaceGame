@@ -16,10 +16,14 @@ public class CarSurfaceHandler : MonoBehaviour
 
     //Other components
     Collider2D carCollider;
+    
+    //часть костыля для моста
+    private CarLayerHandler _carLayerHandler;
 
     void Awake()
     {
         carCollider = GetComponentInChildren<Collider2D>();
+        _carLayerHandler = GetComponent<CarLayerHandler>();
     }
 
     // Start is called before the first frame update
@@ -31,6 +35,14 @@ public class CarSurfaceHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //костыль чтоб на мосту ехать как по дороге
+        if (_carLayerHandler.IsDrivingOnOverpass())
+        {
+            drivingOnSurface = Surface.SurfaceTypes.Road;
+            return;
+        }
+        //конец костыля
+        
         if ((transform.position - lastSampledSurfacePosition).sqrMagnitude < 0.75f)
             return;
 
@@ -46,7 +58,13 @@ public class CarSurfaceHandler : MonoBehaviour
         for (int i = 0; i < numberOfHits; i++)
         {
             Surface surface = surfaceCollidersHit[i].GetComponent<Surface>();
-
+            if (surface is null)
+            {
+                drivingOnSurface = Surface.SurfaceTypes.Sand;
+                lastSurfaceZValue = 0;
+                continue;
+            }
+            
             if (surface.transform.position.z > lastSurfaceZValue)
             {
                 drivingOnSurface = surface.surfaceType;
@@ -59,7 +77,7 @@ public class CarSurfaceHandler : MonoBehaviour
 
         lastSampledSurfacePosition = transform.position;
 
-        Debug.Log($"Driving on {drivingOnSurface}");
+        //Debug.Log($"Driving on {drivingOnSurface}");
     }
 
     public Surface.SurfaceTypes GetCurrentSurface()

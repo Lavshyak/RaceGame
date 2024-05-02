@@ -221,6 +221,34 @@ public class CarAIHandler : MonoBehaviour
         return steerAmount;
     }
 
+    private Rigidbody2D _rigidbody2D;
+    // Замедляется перед поворотом, основываясь на угле, скорости и удаленности от поворота
+    float TrottleBeforeTurn()
+    {
+        Transform carTransform = this.transform;
+        
+        var first = currentWaypoint;
+        var second = first.nextWaypointNode.First();
+
+        var firstPos = first.transform.position;
+        var secondPos = second.transform.position;
+        
+        var carPos = carTransform.position;
+
+        var angle = Vector2.Angle(firstPos - carPos, secondPos-firstPos);
+
+        var distanceToTurn = (firstPos - carPos).magnitude;
+
+        if (distanceToTurn > 50)
+        {
+            return 0f;
+        }
+
+        _rigidbody2D ??= this.GetComponent<Rigidbody2D>();
+        
+        return (angle / 180) * _rigidbody2D.velocity.magnitude/maxSpeed * 10;
+    }
+    
     float ApplyThrottleOrBrake(float inputX)
     {
         //If we are going too fast then do not accelerate further. 
@@ -231,7 +259,7 @@ public class CarAIHandler : MonoBehaviour
         float reduceSpeedDueToCornering = Mathf.Abs(inputX) / 1.0f;
 
         //Apply throttle based on cornering and skill.
-        float throttle = 1.05f - reduceSpeedDueToCornering * skillLevel;
+        float throttle = 1.05f - reduceSpeedDueToCornering * skillLevel - TrottleBeforeTurn();
 
         //Handle throttle differently when we are following temp waypoints
         if (temporaryWaypoints.Count() != 0)

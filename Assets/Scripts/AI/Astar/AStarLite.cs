@@ -130,8 +130,11 @@ public class AStarLite : MonoBehaviour
         //Start the algorithm by calculating the costs for the first node 
         startNode = GetNodeFromPoint(currentPositionGridPoint);
 
+        if (startNode is null)
+            return null;
+        
         //Store the start grid postion so we have use it while developing
-        startPositionDebug = ConvertGridPositionToWorldPosition(startNode);
+        //startPositionDebug = ConvertGridPositionToWorldPosition(startNode);
 
         //Set the current node to the start node
         AStarNode currentNode = startNode;

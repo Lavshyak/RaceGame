@@ -101,7 +101,7 @@ public class SelectCarUIHandler : MonoBehaviour
 
         }
 
-        SceneManager.LoadScene("Course1");
+        SceneManager.LoadScene(GameManager.instance.NextLevelSceneName);
     }
 
     IEnumerator SpawnCarCO(bool isCarAppearingOnRightSide)

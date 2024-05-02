@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
-public enum GameStates { countDown, running, raceOver };
+public enum GameStates
+{
+    countDown,
+    running,
+    raceOver
+};
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +25,12 @@ public class GameManager : MonoBehaviour
 
     //Driver information
     List<DriverInfo> driverInfoList = new List<DriverInfo>();
+
+    /// <summary>
+    /// В меню сначала выбор уровня, сюда установится выбранный уровень,
+    /// потом откроется выбор машины, откуда должен запуститься этот уровень
+    /// </summary>
+    public string NextLevelSceneName { get; set; }
 
     //Events
     public event Action<GameManager> OnGameStateChanged;
@@ -128,6 +139,7 @@ public class GameManager : MonoBehaviour
 
         ChangeGameState(GameStates.running);
     }
+
     public void OnRaceCompleted()
     {
         Debug.Log("OnRaceCompleted");
@@ -147,5 +159,4 @@ public class GameManager : MonoBehaviour
     {
         LevelStart();
     }
-
 }

@@ -9,7 +9,7 @@ public class WaypointNode : MonoBehaviour
     public float maxSpeed = 0;
 
     [Header("This is the waypoint we are going towards, not yet reached")]
-    public float minDistanceToReachWaypoint = 5;
+    public float minDistanceToReachWaypoint = 1;
 
     public WaypointNode[] nextWaypointNode;
 

@@ -34,7 +34,7 @@ public class SpawnCars : MonoBehaviour
             DriverInfo driverInfo = driverInfoList[0];
 
             int selectedCarID = driverInfo.carUniqueID;
-
+            
             //Find the selected car
             foreach (CarData cardata in carDatas)
             {
@@ -58,10 +58,13 @@ public class SpawnCars : MonoBehaviour
                         car.GetComponent<CarAIHandler>().enabled = false;
                         car.GetComponent<AStarLite>().enabled = false;
                         car.tag = "Player";
+                        
+                        var mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+                        var cameraFollow = mainCamera.GetComponent<CameraFollow>();
+                        cameraFollow.target = car.transform;
                     }
 
                     numberOfCarsSpawned++;
-
                     break;
                 }
             }

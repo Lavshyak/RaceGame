@@ -11487,7 +11487,7 @@ MonoBehaviour:
   driftFactor: 0.93
   accelerationFactor: 30
   turnFactor: 3.5
-  maxSpeed: 20
+  maxSpeed: 60
   carSpriteRenderer: {fileID: 6558350185083141112}
   carShadowRenderer: {fileID: 733638173380642315}
   jumpCurve:
@@ -11610,7 +11610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiMode: 1
-  maxSpeed: 16
+  maxSpeed: 60
   isAvoidingCars: 1
   skillLevel: 1
 --- !u!114 &3364370285582861605

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/SelectCarScene.unity
     guid: bec62098aeea28746b7996b2453658e2
   - enabled: 1
     path: Assets/Scenes/Course1.unity
@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Example cases/SpawnCar.unity
     guid: 7bd6c5c37190e184497fa71a848a8552
+  - enabled: 1
+    path: Assets/Scenes/StartupLevelsListScene.unity
+    guid: f9aae05615a71044ea7dc0fa6188e405
+  - enabled: 1
+    path: Assets/Scenes/NewCourse1.unity
+    guid: 275a18248b283b449acd6c48b61f3d35
+  - enabled: 1
+    path: Assets/Scenes/Trash/1stLevel.unity
+    guid: 71321012518509645aaabaedd5716b38
   m_configObjects: {}
