@@ -18298,6 +18298,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2027484039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834896023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3012591730377267653, guid: ea12bb0a0d0466b4c99a5a186eb21a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 273373801959798882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae20c131d901c454f85296d912d631db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1842109719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19087,6 +19099,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3012591730377267653, guid: ea12bb0a0d0466b4c99a5a186eb21a55,
+        type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012591730377267653, guid: ea12bb0a0d0466b4c99a5a186eb21a55,
+        type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4483356347675897250, guid: ea12bb0a0d0466b4c99a5a186eb21a55,
         type: 3}
       propertyPath: m_Pivot.x
@@ -19519,6 +19541,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3752401898769677543, guid: 9a351f61d2b80164fbe2f85662a6265c,
+        type: 3}
+      propertyPath: uIVirtualJoystick
+      value: 
+      objectReference: {fileID: 1834896023}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -14,7 +14,7 @@ public class CarUIInputHandler : MonoBehaviour
 
         foreach (CarInputHandler carInputHandler in carinputHandlers)
         {
-            if (carInputHandler.isUIInput)
+            if (carInputHandler.allowUIInput)
             {
                 playerCarInputHandler = carInputHandler;
                 break;

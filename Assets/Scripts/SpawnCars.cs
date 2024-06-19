@@ -5,6 +5,8 @@ using System.Linq;
 
 public class SpawnCars : MonoBehaviour
 {
+    public UIVirtualJoystick uIVirtualJoystick;
+    
     int numberOfCarsSpawned = 0;
 
     // Start is called before the first frame update
@@ -63,6 +65,8 @@ public class SpawnCars : MonoBehaviour
                         var cameraFollow = mainCamera.GetComponent<CameraFollow>();
                         cameraFollow.target = car.transform;
                     }
+                    
+                    uIVirtualJoystick.joystickOutputEvent.AddListener(car.GetComponent<CarInputHandler>().SetInput);
 
                     numberOfCarsSpawned++;
                     break;
