@@ -7224,6 +7224,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb08bfc0fd869c47b796c42ada099da, type: 3}
+--- !u!114 &777643352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 191938513, guid: 6eb08bfc0fd869c47b796c42ada099da,
+    type: 3}
+  m_PrefabInstance: {fileID: 777643351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae20c131d901c454f85296d912d631db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &779396614
 GameObject:
   m_ObjectHideFlags: 0
@@ -9737,6 +9749,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3752401898769677543, guid: 9a351f61d2b80164fbe2f85662a6265c,
+        type: 3}
+      propertyPath: uIVirtualJoystick
+      value: 
+      objectReference: {fileID: 777643352}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
