@@ -26,7 +26,7 @@ public class InGameMenuUIHandler : MonoBehaviour
 
     public void OnExitToMainMenu()
     {
-        SceneManager.LoadScene("StartupLevelsListScene");
+        SceneManager.LoadScene("Level Choice");
     }
 
     IEnumerator ShowMenuCO()
